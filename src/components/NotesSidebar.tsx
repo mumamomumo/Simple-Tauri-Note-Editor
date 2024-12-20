@@ -1,3 +1,4 @@
+import { Note } from "@/types/Note";
 import { Trash2, FilePlus2 } from "lucide-react";
 
 function NotesSidebar(props: {
@@ -41,7 +42,7 @@ function NotesSidebar(props: {
       </div>
       {/* Notes List */}
       <div className="notes-list">
-        {notes.map((note) => (
+        {notes.map((note: Note) => (
           <div
             className="note-side"
             onClick={() => setOpenNote(note)}

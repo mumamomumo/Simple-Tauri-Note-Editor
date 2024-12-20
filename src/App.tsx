@@ -12,9 +12,10 @@ import {
 } from "./components/ui/resizable";
 
 import { loadNotes } from "./data/notesStorage";
+import { Note } from "./types/Note";
 
 export default function App() {
-  const [openNote, setOpenNote] = useState(null);
+  const [openNote, setOpenNote] = useState<Note | null>(null);
   const notes = useNotesStore((state) => state.notes);
   const addNote = useNotesStore((state) => state.addNote);
   const updateNote = useNotesStore((state) => state.updateNote);
@@ -50,8 +51,8 @@ export default function App() {
         <ResizablePanel minSize={40}>
           {openNote ? (
             <NoteEditor
-              title={openNote?.title}
-              content={openNote?.content}
+              title={openNote.title}
+              content={openNote.content}
               id={openNote.id}
               updateNote={updateNote}
             />

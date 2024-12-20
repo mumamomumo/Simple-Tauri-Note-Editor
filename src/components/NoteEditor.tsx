@@ -6,19 +6,19 @@ function NoteEditor(props: {
   id: number;
   updateNote: Function;
 }): JSX.Element {
-  const titleRef = useRef(null);
-  const contentRef = useRef(null);
+  const titleRef = useRef<HTMLInputElement>(null);
+  const contentRef = useRef<HTMLTextAreaElement>(null);
 
   const updateNote = () => {
-    props.updateNote(props.id, titleRef.current.value, contentRef.current.value);
+    props.updateNote(props.id, titleRef.current!.value, contentRef.current!.value);
   };
 
 
 
   useEffect(() => {
     console.log("Note Editor change");
-    titleRef.current.value = props.title;
-    contentRef.current.value = props.content;
+    titleRef.current!.value = props.title;
+    contentRef.current!.value = props.content;
     return () => {
       console.log("Note Editor remove");
     };

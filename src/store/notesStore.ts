@@ -1,8 +1,9 @@
 import { create } from "zustand";
 import { saveNotes } from "@/data/notesStorage";
+import { Note } from "@/types/Note";
 
 export type NotesStore = {
-  notes: Array<{ id: number; title: string; content: string }>;
+  notes: Array<Note>;
   addNote: (title: string, content: string) => void;
   removeNote: (id: number) => void;
   updateNote: (id: number, title: string, content: string) => void;
